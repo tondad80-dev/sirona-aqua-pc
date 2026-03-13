@@ -1,0 +1,1 @@
+console.log("Sirona Aqua S1 – základní statická verze naètena.");
