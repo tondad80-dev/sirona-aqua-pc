@@ -1,318 +1,122 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sirona Aqua – Inteligentní akvaristický ekosystém</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sirona Aqua — S1</title>
+  <style>
+    /* --- TOKENS.CSS --- */
+    :root {
+      --s1-deep-aqua: #0A3D46;
+      --s1-light-aqua: #3EC6D1;
+      --s1-whitewater: #ffffff;
+      --s1-mist-grey: #F3F5F6;
+      --s1-abyss-blue: #062A30;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --space-xs: 8px;
+      --space-s: 16px;
+      --space-m: 24px;
+      --space-l: 40px;
+      --space-xl: 64px;
+      --radius-s: 6px;
+      --radius-m: 12px;
+    }
 
-    <style>
-        :root {
-            --primary: #0a2a43;
-            --accent: #00d4ff;
-            --bg: #f4f9fc;
-            --white: #ffffff;
-            --success: #28a745;
-            --danger: #dc3545;
-        }
+    /* --- LAYOUT.CSS --- */
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--s1-abyss-blue);
+      background: var(--s1-whitewater);
+    }
+    header {
+      background: var(--s1-deep-aqua);
+      padding: var(--space-s) var(--space-l);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header img { height: 48px; }
+    nav a {
+      color: var(--s1-whitewater);
+      margin-left: var(--space-m);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .hero {
+      background: var(--s1-deep-aqua);
+      color: var(--s1-whitewater);
+      text-align: center;
+      padding: var(--space-xl) var(--space-l);
+    }
+    .hero img { width: 180px; margin-bottom: var(--space-m); }
+    section { padding: var(--space-xl) var(--space-l); }
+    .section-grey { background: var(--s1-mist-grey); }
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--primary);
-            scroll-behavior: smooth;
-        }
-
-        /* HEADER + LOGO */
-        header {
-            background: var(--primary);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        .logo {
-            width: 70px;
-            margin-bottom: 10px;
-        }
-
-        nav {
-            background: #062033;
-            padding: 12px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: var(--accent);
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* GRID SECTIONS */
-        .features, .modules {
-            max-width: 1100px;
-            margin: 2rem auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 22px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--accent);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-
-        /* LIVE VALUES */
-        .live-value {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--primary);
-            display: block;
-            margin: 5px 0;
-        }
-
-        .status-indicator {
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* BUTTONS */
-        .btn-refresh {
-            background: var(--primary);
-            color: white;
-            border: 2px solid var(--accent);
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .btn-refresh:hover {
-            background: var(--accent);
-            color: var(--primary);
-        }
-
-        .btn-refresh.loading {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .btn-dashboard {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: var(--accent);
-            color: var(--primary);
-            font-weight: bold;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-dashboard:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            background: var(--primary);
-            color: white;
-        }
-
-        #msg-log {
-            font-size: 0.9rem;
-            margin-top: 10px;
-            color: #555;
-        }
-    </style>
+    /* --- COMPONENTS.CSS --- */
+    .btn-primary {
+      background: var(--s1-light-aqua);
+      color: var(--s1-whitewater);
+      padding: var(--space-s) var(--space-m);
+      border-radius: var(--radius-s);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin: 10px;
+    }
+    .btn-secondary {
+      border: 2px solid var(--s1-light-aqua);
+      color: var(--s1-light-aqua);
+      padding: var(--space-s) var(--space-m);
+      border-radius: var(--radius-s);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-block;
+      margin: 10px;
+    }
+  </style>
 </head>
-
 <body>
 
 <header>
-    <!-- Minimalistické logo Sirona Aqua (SVG) -->
-    <svg class="logo" viewBox="0 0 100 100">
-        <polygon points="50,5 95,85 5,85" fill="none" stroke="#00d4ff" stroke-width="4"/>
-        <path d="M30 60 Q50 30 70 60" fill="none" stroke="#00d4ff" stroke-width="4"/>
-        <circle cx="50" cy="50" r="6" fill="#00d4ff"/>
-    </svg>
-
-    <h1>Sirona Aqua – Inteligentní ekosystém pro akvaristy</h1>
+  <!-- Poznámka: Pokud nemáš nahráno logo, zobrazí se alt text -->
+  <div style="color:white; font-weight:bold;">SIRONA AQUA</div>
+  <nav>
+    <a href="#">S1</a>
+    <a href="#">Funkce</a>
+    <a href="#">Aplikace</a>
+    <a href="#">Kontakt</a>
+  </nav>
 </header>
 
-<nav>
-    <a href="#funkce">Funkce</a>
-    <a href="#moduly">Moduly</a>
-    <a href="#s1">S1 Jednotka</a>
-    <a href="#app">Aplikace</a>
-</nav>
+<div class="hero">
+  <h1>Sirona Aqua</h1>
+  <h2>Inteligentní ekosystém vody — S1</h2>
+  <a class="btn-primary" href="#">Stáhnout aplikaci</a>
+  <a class="btn-secondary" href="#">Co je S1?</a>
+</div>
 
-<section class="hero">
-    <h2>Moderní péče o akvárium bez starostí</h2>
-    <p>
-        Sirona Aqua pomáhá akvaristům udržet stabilní a zdravé prostředí díky pokročilé technologii S1 PC.
-    </p>
+<section>
+  <h2>S1 — Svět vody</h2>
+  <p>Voda. Rovnováha. Stabilita. Proces. Ekosystém.</p>
 </section>
 
-<!-- FUNKCE -->
-<section id="funkce" class="features">
-    <div class="card">
-        <h3>📊 Monitoring vody</h3>
-        <p>Teplota: <span id="temp-val" class="live-value">-- °C</span></p>
-        <p>Průtok: <span id="flow-val" class="live-value">-- L/min</span></p>
-        <div id="status-text" class="status-indicator" style="color: gray;">Stav: Odpojeno</div>
-    </div>
-
-    <div class="card">
-        <h3>⚙️ Automatizace</h3>
-        <p>Filtrace, světla a CO₂ moduly řízené inteligentní logikou S1 jednotky.</p>
-    </div>
-
-    <div class="card">
-        <h3>📱 Mobilní aplikace</h3>
-        <p>Kompletní přehled v kapse. Notifikace, historie a dálkové ovládání.</p>
-    </div>
-
-    <div class="card">
-        <h3>🔧 S1 Jednotka</h3>
-        <p>ID Jednotky: <strong>S1-ALPHA-PC</strong></p>
-        <p>Uptime: <span id="uptime-val">00:00:00</span></p>
-    </div>
+<section class="section-grey">
+  <h2>Sirona Aqua — Implementace S1</h2>
+  <p>Monitoring, predikce, automatizace, stabilizace.</p>
 </section>
 
-<!-- MODULY -->
-<section id="moduly" class="modules">
-    <div class="card"><h3>💡 Osvětlení</h3><p>Automatické řízení intenzity a spektra.</p></div>
-    <div class="card"><h3>🌬 Filtrace</h3><p>Chytré řízení průtoku a výkonu.</p></div>
-    <div class="card"><h3>🌿 CO₂</h3><p>Precizní dávkování pro rostlinná akvária.</p></div>
-    <div class="card"><h3>🔆 UV Sterilizace</h3><p>Automatické cykly pro čistou vodu.</p></div>
-</section>
-
-<!-- S1 -->
-<section id="s1" class="hero" style="background: white; margin: 2rem 0; padding: 4rem 1rem;">
-    <h2>S1 – Srdce celého systému</h2>
-    <p>
-        Jednotka S1 sbírá data ze senzorů v reálném čase. Kliknutím níže zahájíte synchronizaci dat s PC rozhraním.
-    </p>
-    <button class="btn-refresh" id="sync-btn">Synchronizovat s S1 Jednotkou</button>
-    <div id="msg-log">Připraveno ke komunikaci...</div>
-</section>
-
-<!-- APLIKACE -->
-<section id="app" class="hero">
-    <h2>Aplikace Sirona Aqua</h2>
-    <p>
-        Sledujte stav akvária, nastavujte automatizaci a prohlížejte grafy přímo zde v prohlížeči nebo v mobilu.
-    </p>
-
-    <a href="/dashboard" class="btn-dashboard">Otevřít ovládací panel S1</a>
+<section>
+  <h2>S‑System</h2>
+  <p>S1 aktivní. S2–S5 přijdou.</p>
 </section>
 
 <footer>
-    © 2026 Sirona Aqua – S1 PC Ecosystem<br>
-    <small>Všechny systémy monitorovány</small>
+    <div style="text-align: center; padding: 20px; font-size: 0.8rem; opacity: 0.6;">
+        © Sirona Aqua — S1 Ecosystem
+    </div>
 </footer>
-
-<script>
-    const tempEl = document.getElementById('temp-val');
-    const flowEl = document.getElementById('flow-val');
-    const statusText = document.getElementById('status-text');
-    const syncBtn = document.getElementById('sync-btn');
-    const msgLog = document.getElementById('msg-log');
-    const uptimeEl = document.getElementById('uptime-val');
-
-    let uptimeSeconds = 0;
-
-    async function updateS1Data() {
-        syncBtn.classList.add('loading');
-        msgLog.innerText = "Probíhá handshake s S1 PC...";
-        
-        try {
-            await new Promise(resolve => setTimeout(resolve, 800));
-
-            const data = {
-                temp: (23 + Math.random() * 1.5).toFixed(1),
-                flow: (4.8 + Math.random() * 0.5).toFixed(1),
-                online: true
-            };
-
-            tempEl.innerText = `${data.temp} °C`;
-            flowEl.innerText = `${data.flow} L/min`;
-            statusText.innerText = "Stav: ONLINE (S1 PC)";
-            statusText.style.color = "var(--success)";
-            msgLog.innerText = "Synchronizace dokončena v " + new Date().toLocaleTimeString();
-
-        } catch (error) {
-            msgLog.innerText = "Chyba: Jednotka S1 neodpovídá.";
-            statusText.innerText = "Stav: CHYBA SPOJENÍ";
-            statusText.style.color = "var(--danger)";
-        } finally {
-            syncBtn.classList.remove('loading');
-        }
-    }
-
-    setInterval(() => {
-        uptimeSeconds++;
-        const hrs = String(Math.floor(uptimeSeconds / 3600)).padStart(2, '0');
-        const mins = String(Math.floor((uptimeSeconds % 3600) / 60)).padStart(2, '0');
-        const secs = String(uptimeSeconds % 60).padStart(2, '0');
-        uptimeEl.innerText = `${hrs}:${mins}:${secs}`;
-    }, 1000);
-
-    syncBtn.addEventListener('click', updateS1Data);
-
-    window.onload = () => {
-        updateS1Data();
-        setInterval(updateS1Data, 10000);
-    };
-</script>
 
 </body>
 </html>
