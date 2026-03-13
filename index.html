@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sirona Aqua – S1 Control Panel</title>
+    <title>Sirona Aqua – Inteligentní akvaristický ekosystém</title>
 
     <style>
         :root {
@@ -12,7 +12,7 @@
             --bg: #f4f9fc;
             --white: #ffffff;
             --success: #28a745;
-            --danger: #ff3b3b;
+            --danger: #dc3545;
         }
 
         body {
@@ -20,83 +20,156 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: var(--bg);
             color: var(--primary);
+            scroll-behavior: smooth;
         }
 
+        /* HEADER + LOGO */
         header {
             background: var(--primary);
             color: white;
-            padding: 1.5rem;
+            padding: 2rem 1rem;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
         }
 
-        main {
-            max-width: 1000px;
+        .logo {
+            width: 70px;
+            margin-bottom: 10px;
+        }
+
+        nav {
+            background: #062033;
+            padding: 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            color: var(--accent);
+            margin: 0 18px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        /* GRID SECTIONS */
+        .features, .modules {
+            max-width: 1100px;
             margin: 2rem auto;
-            padding: 0 20px;
-        }
-
-        .dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            padding: 0 20px;
         }
 
         .card {
             background: var(--white);
-            padding: 20px;
+            padding: 22px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             border-left: 5px solid var(--accent);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
         }
 
         .card h3 {
             margin-top: 0;
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            color: #666;
+            color: var(--primary);
         }
 
-        .value {
-            font-size: 2rem;
+        /* LIVE VALUES */
+        .live-value {
+            font-size: 1.4rem;
             font-weight: bold;
-            margin: 10px 0;
+            color: var(--primary);
+            display: block;
+            margin: 5px 0;
         }
 
-        .status {
-            font-size: 0.8rem;
+        .status-indicator {
+            font-size: 0.85rem;
             font-weight: bold;
-            color: var(--success);
+            margin-top: 10px;
         }
 
-        .controls {
-            margin-top: 30px;
-            background: var(--white);
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        button {
+        /* BUTTONS */
+        .btn-refresh {
             background: var(--primary);
             color: white;
-            border: none;
+            border: 2px solid var(--accent);
             padding: 12px 25px;
-            border-radius: 6px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
             transition: 0.3s;
         }
 
-        button:hover {
+        .btn-refresh:hover {
             background: var(--accent);
             color: var(--primary);
         }
 
-        .loading {
+        .btn-refresh.loading {
             opacity: 0.5;
-            pointer-events: none;
+            cursor: not-allowed;
+        }
+
+        .btn-dashboard {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 25px;
+            background: var(--accent);
+            color: var(--primary);
+            font-weight: bold;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .btn-dashboard:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
+            background: var(--primary);
+            color: white;
+        }
+
+        #msg-log {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #555;
         }
     </style>
 </head>
@@ -104,76 +177,141 @@
 <body>
 
 <header>
-    <h1>Sirona Aqua – S1 Dashboard</h1>
+    <!-- Minimalistické logo Sirona Aqua (SVG) -->
+    <svg class="logo" viewBox="0 0 100 100">
+        <polygon points="50,5 95,85 5,85" fill="none" stroke="#00d4ff" stroke-width="4"/>
+        <path d="M30 60 Q50 30 70 60" fill="none" stroke="#00d4ff" stroke-width="4"/>
+        <circle cx="50" cy="50" r="6" fill="#00d4ff"/>
+    </svg>
+
+    <h1>Sirona Aqua – Inteligentní ekosystém pro akvaristy</h1>
 </header>
 
-<main>
-    <div class="dashboard">
-        <div class="card">
-            <h3>Teplota vody</h3>
-            <div class="value" id="temp-val">-- °C</div>
-            <div class="status">● Aktivní</div>
-        </div>
+<nav>
+    <a href="#funkce">Funkce</a>
+    <a href="#moduly">Moduly</a>
+    <a href="#s1">S1 Jednotka</a>
+    <a href="#app">Aplikace</a>
+</nav>
 
-        <div class="card">
-            <h3>Průtok S1</h3>
-            <div class="value" id="flow-val">-- L/min</div>
-            <div class="status">● V normě</div>
-        </div>
+<section class="hero">
+    <h2>Moderní péče o akvárium bez starostí</h2>
+    <p>
+        Sirona Aqua pomáhá akvaristům udržet stabilní a zdravé prostředí díky pokročilé technologii S1 PC.
+    </p>
+</section>
 
-        <div class="card">
-            <h3>Stav ekosystému</h3>
-            <div class="value" id="status-val">Synchronizace...</div>
-            <div class="status" id="uptime-val">Uptime: --:--</div>
-        </div>
+<!-- FUNKCE -->
+<section id="funkce" class="features">
+    <div class="card">
+        <h3>📊 Monitoring vody</h3>
+        <p>Teplota: <span id="temp-val" class="live-value">-- °C</span></p>
+        <p>Průtok: <span id="flow-val" class="live-value">-- L/min</span></p>
+        <div id="status-text" class="status-indicator" style="color: gray;">Stav: Odpojeno</div>
     </div>
 
-    <div class="controls">
-        <h2>Ovládání modulů</h2>
-        <button id="refresh-btn">Aktualizovat data z S1</button>
-        <p id="msg" style="margin-top:15px; font-style:italic;"></p>
+    <div class="card">
+        <h3>⚙️ Automatizace</h3>
+        <p>Filtrace, světla a CO₂ moduly řízené inteligentní logikou S1 jednotky.</p>
     </div>
-</main>
+
+    <div class="card">
+        <h3>📱 Mobilní aplikace</h3>
+        <p>Kompletní přehled v kapse. Notifikace, historie a dálkové ovládání.</p>
+    </div>
+
+    <div class="card">
+        <h3>🔧 S1 Jednotka</h3>
+        <p>ID Jednotky: <strong>S1-ALPHA-PC</strong></p>
+        <p>Uptime: <span id="uptime-val">00:00:00</span></p>
+    </div>
+</section>
+
+<!-- MODULY -->
+<section id="moduly" class="modules">
+    <div class="card"><h3>💡 Osvětlení</h3><p>Automatické řízení intenzity a spektra.</p></div>
+    <div class="card"><h3>🌬 Filtrace</h3><p>Chytré řízení průtoku a výkonu.</p></div>
+    <div class="card"><h3>🌿 CO₂</h3><p>Precizní dávkování pro rostlinná akvária.</p></div>
+    <div class="card"><h3>🔆 UV Sterilizace</h3><p>Automatické cykly pro čistou vodu.</p></div>
+</section>
+
+<!-- S1 -->
+<section id="s1" class="hero" style="background: white; margin: 2rem 0; padding: 4rem 1rem;">
+    <h2>S1 – Srdce celého systému</h2>
+    <p>
+        Jednotka S1 sbírá data ze senzorů v reálném čase. Kliknutím níže zahájíte synchronizaci dat s PC rozhraním.
+    </p>
+    <button class="btn-refresh" id="sync-btn">Synchronizovat s S1 Jednotkou</button>
+    <div id="msg-log">Připraveno ke komunikaci...</div>
+</section>
+
+<!-- APLIKACE -->
+<section id="app" class="hero">
+    <h2>Aplikace Sirona Aqua</h2>
+    <p>
+        Sledujte stav akvária, nastavujte automatizaci a prohlížejte grafy přímo zde v prohlížeči nebo v mobilu.
+    </p>
+
+    <a href="/dashboard" class="btn-dashboard">Otevřít ovládací panel S1</a>
+</section>
+
+<footer>
+    © 2026 Sirona Aqua – S1 PC Ecosystem<br>
+    <small>Všechny systémy monitorovány</small>
+</footer>
 
 <script>
-    const API_URL = "https://api.sironaaqua.cz";
-
     const tempEl = document.getElementById('temp-val');
     const flowEl = document.getElementById('flow-val');
-    const statusEl = document.getElementById('status-val');
-    const refreshBtn = document.getElementById('refresh-btn');
-    const msgEl = document.getElementById('msg');
+    const statusText = document.getElementById('status-text');
+    const syncBtn = document.getElementById('sync-btn');
+    const msgLog = document.getElementById('msg-log');
+    const uptimeEl = document.getElementById('uptime-val');
 
-    async function fetchData() {
-        refreshBtn.classList.add('loading');
-        msgEl.innerText = "Komunikuji se S1 jednotkou...";
+    let uptimeSeconds = 0;
 
+    async function updateS1Data() {
+        syncBtn.classList.add('loading');
+        msgLog.innerText = "Probíhá handshake s S1 PC...";
+        
         try {
             await new Promise(resolve => setTimeout(resolve, 800));
 
-            const demoData = {
-                temp: (22 + Math.random() * 2).toFixed(1),
-                flow: (5.2 + Math.random()).toFixed(1),
-                system: "ONLINE"
+            const data = {
+                temp: (23 + Math.random() * 1.5).toFixed(1),
+                flow: (4.8 + Math.random() * 0.5).toFixed(1),
+                online: true
             };
 
-            tempEl.innerText = `${demoData.temp} °C`;
-            flowEl.innerText = `${demoData.flow} L/min`;
-            statusEl.innerText = demoData.system;
-            statusEl.style.color = "#00d4ff";
-            msgEl.innerText = "Data byla úspěšně aktualizována.";
+            tempEl.innerText = `${data.temp} °C`;
+            flowEl.innerText = `${data.flow} L/min`;
+            statusText.innerText = "Stav: ONLINE (S1 PC)";
+            statusText.style.color = "var(--success)";
+            msgLog.innerText = "Synchronizace dokončena v " + new Date().toLocaleTimeString();
 
         } catch (error) {
-            msgEl.innerText = "Chyba spojení se S1 jednotkou.";
-            statusEl.innerText = "OFFLINE";
-            statusEl.style.color = "var(--danger)";
+            msgLog.innerText = "Chyba: Jednotka S1 neodpovídá.";
+            statusText.innerText = "Stav: CHYBA SPOJENÍ";
+            statusText.style.color = "var(--danger)";
         } finally {
-            refreshBtn.classList.remove('loading');
+            syncBtn.classList.remove('loading');
         }
     }
 
-    refreshBtn.addEventListener('click', fetchData);
-    window.onload = fetchData;
+    setInterval(() => {
+        uptimeSeconds++;
+        const hrs = String(Math.floor(uptimeSeconds / 3600)).padStart(2, '0');
+        const mins = String(Math.floor((uptimeSeconds % 3600) / 60)).padStart(2, '0');
+        const secs = String(uptimeSeconds % 60).padStart(2, '0');
+        uptimeEl.innerText = `${hrs}:${mins}:${secs}`;
+    }, 1000);
+
+    syncBtn.addEventListener('click', updateS1Data);
+
+    window.onload = () => {
+        updateS1Data();
+        setInterval(updateS1Data, 10000);
+    };
 </script>
 
 </body>
