@@ -2,10 +2,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { useTelemetry } from '@/lib/hooks/useTelemetry';
+import { useTelemetry } from '../../lib/hooks/useTelemetry'; // OPRAVENÁ CESTA
 
 export default function HistoryChart() {
-  const { history } = useTelemetry(); // TADY BYLA CHYBA - smazal jsem isLimpMode
+  const telemetry = useTelemetry();
+  const history = telemetry?.history || [];
+  
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -25,28 +27,13 @@ export default function HistoryChart() {
             </linearGradient>
           </defs>
           <CartesianGrid strokeDasharray="3 3" stroke="#334155" vertical={false} />
-          <XAxis 
-            dataKey="timestamp" 
-            hide 
-          />
-          <YAxis 
-            stroke="#94a3b8"
-            fontSize={12}
-            tickLine={false}
-            axisLine={false}
-          />
+          <XAxis dataKey="timestamp" hide />
+          <YAxis stroke="#94a3b8" fontSize={12} tickLine={false} axisLine={false} />
           <Tooltip 
             contentStyle={{ backgroundColor: '#1e293b', border: 'none', borderRadius: '8px', color: '#f8fafc' }}
             itemStyle={{ color: '#3b82f6' }}
           />
-          <Area 
-            type="monotone" 
-            dataKey="value" 
-            stroke="#3b82f6" 
-            fillOpacity={1} 
-            fill="url(#colorValue)" 
-            strokeWidth={2}
-          />
+          <Area type="monotone" dataKey="value" stroke="#3b82f6" fillOpacity={1} fill="url(#colorValue)" strokeWidth={2} />
         </AreaChart>
       </ResponsiveContainer>
     </div>
