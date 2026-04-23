@@ -1,32 +1,28 @@
 {
-  "name": "sirona-aqua-web",
-  "version": "1.1.0",
+  "name": "sirona-aqua-pc",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
-    "@influxdata/influxdb-client": "^1.35.0",
-    "clsx": "^2.1.1",
+    "next": "15.0.3",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
     "lucide-react": "^0.454.0",
-    "mqtt": "^5.10.1",
-    "next": "15.0.0",
-    "react": "19.0.0-rc-65a56d0e-20241020",
-    "react-dom": "19.0.0-rc-65a56d0e-20241020",
-    "react-is": "^19.2.5",
-    "recharts": "^3.8.1",
+    "recharts": "^2.13.3",
+    "clsx": "^2.1.1",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@types/node": "^20.17.0",
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
-    "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.14",
-    "typescript": "^5.6.3"
+    "postcss": "^8",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19"
   }
 }
