@@ -20,7 +20,7 @@ updateModel();
 const details = {
  plant: {number: '01', title: 'Láčkovka jako živé centrum', text: 'První pilot vzniká kolem láčkovky označené Nepenthes ‘Gaya’. V návrhu ji usazujeme do vzdušné dutiny dřeva, s volným prostorem pro láčky a odtokem přebytečné vody.'},
  rock: {number: '02', title: 'Malá krajina, skutečné souvislosti', text: 'Místní břidlice tvoří nízké terasy. Rašeliník s perlitem, dřevo a mech mají vytvořit přirozenou pěstební skalku. Návrh počítá s drenáží a možností odsát přebytečnou vodu.'},
- fog: {number: '03', title: 'Technika ustupuje přírodě', text: 'Celý mlžný set má skrýt odnímatelná kulisa z kůry a mechu. Nádoba přitom zůstane přístupná pro dolévání i úplné vyjmutí. Servisní přístup je třeba ověřit při sestavení nasucho.'}
+ fog: {number: '03', title: 'Technika ustupuje přírodě', text: 'Terárium využije pouze mlžič, bez vodopádu, potůčku nebo oběhového čerpadla. Celý mlžný set má skrýt odnímatelná kulisa z kůry a mechu. Nádoba přitom zůstane přístupná pro dolévání i úplné vyjmutí. Servisní přístup je třeba ověřit při sestavení nasucho.'}
 };
 document.querySelectorAll('[data-detail]').forEach(button => button.addEventListener('click', () => {
   const detail = details[button.dataset.detail];
