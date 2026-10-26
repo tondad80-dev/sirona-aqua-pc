@@ -1,318 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sirona Aqua – Inteligentní akvaristický ekosystém</title>
-
-    <style>
-        :root {
-            --primary: #0a2a43;
-            --accent: #00d4ff;
-            --bg: #f4f9fc;
-            --white: #ffffff;
-            --success: #28a745;
-            --danger: #dc3545;
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--primary);
-            scroll-behavior: smooth;
-        }
-
-        /* HEADER + LOGO */
-        header {
-            background: var(--primary);
-            color: white;
-            padding: 2rem 1rem;
-            text-align: center;
-        }
-
-        .logo {
-            width: 70px;
-            margin-bottom: 10px;
-        }
-
-        nav {
-            background: #062033;
-            padding: 12px;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav a {
-            color: var(--accent);
-            margin: 0 18px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        /* HERO */
-        .hero {
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            max-width: 700px;
-            margin: auto;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* GRID SECTIONS */
-        .features, .modules {
-            max-width: 1100px;
-            margin: 2rem auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-            padding: 0 20px;
-        }
-
-        .card {
-            background: var(--white);
-            padding: 22px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--accent);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card h3 {
-            margin-top: 0;
-            color: var(--primary);
-        }
-
-        /* LIVE VALUES */
-        .live-value {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: var(--primary);
-            display: block;
-            margin: 5px 0;
-        }
-
-        .status-indicator {
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-top: 10px;
-        }
-
-        /* BUTTONS */
-        .btn-refresh {
-            background: var(--primary);
-            color: white;
-            border: 2px solid var(--accent);
-            padding: 12px 25px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: 0.3s;
-        }
-
-        .btn-refresh:hover {
-            background: var(--accent);
-            color: var(--primary);
-        }
-
-        .btn-refresh.loading {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .btn-dashboard {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 25px;
-            background: var(--accent);
-            color: var(--primary);
-            font-weight: bold;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .btn-dashboard:hover {
-            background: white;
-            color: var(--primary);
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            margin-top: 40px;
-            background: var(--primary);
-            color: white;
-        }
-
-        #msg-log {
-            font-size: 0.9rem;
-            margin-top: 10px;
-            color: #555;
-        }
-    </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#07100c">
+<title>SIRONA — Technologie v rytmu života</title>
+<meta name="description" content="Od prvního terária k autonomním mikrobiotopům. Sirona propojuje živou přírodu, lidskou zvídavost a smysluplnou technologii. Objevte Tera a Aqua.">
+<meta property="og:title" content="SIRONA — Technologie v rytmu života"><meta property="og:description" content="Malý svět. Velká vize. Živé mikrobiotopy, které se učíme chápat."><meta property="og:type" content="website"><meta property="og:locale" content="cs_CZ"><meta property="og:image" content="https://sirona-living-systems.upbeatcomet6.chatgpt.site/assets/terrarium.webp">
+<link rel="icon" href="assets/sirona.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
 </head>
-
 <body>
-
-<header>
-    <!-- Minimalistické logo Sirona Aqua (SVG) -->
-    <svg class="logo" viewBox="0 0 100 100">
-        <polygon points="50,5 95,85 5,85" fill="none" stroke="#00d4ff" stroke-width="4"/>
-        <path d="M30 60 Q50 30 70 60" fill="none" stroke="#00d4ff" stroke-width="4"/>
-        <circle cx="50" cy="50" r="6" fill="#00d4ff"/>
-    </svg>
-
-    <h1>Sirona Aqua – Inteligentní ekosystém pro akvaristy</h1>
-</header>
-
-<nav>
-    <a href="#funkce">Funkce</a>
-    <a href="#moduly">Moduly</a>
-    <a href="#s1">S1 Jednotka</a>
-    <a href="#app">Aplikace</a>
-</nav>
-
-<section class="hero">
-    <h2>Moderní péče o akvárium bez starostí</h2>
-    <p>
-        Sirona Aqua pomáhá akvaristům udržet stabilní a zdravé prostředí díky pokročilé technologii S1 PC.
-    </p>
+<a class="skip" href="#main">Přejít na obsah</a>
+<header class="header"><a class="brand" href="#home" aria-label="Sirona – úvod"><svg viewBox="0 0 100 100" aria-hidden="true"><path d="M50 9 93 84H7Z"/><path d="M29 62Q50 27 71 62"/><circle cx="50" cy="50" r="5"/></svg><span>SIRONA<span class="brand-sub">LIVING SYSTEMS</span></span></a>
+<nav class="nav" aria-label="Hlavní navigace"><a href="#vize">Vize</a><a href="#tera">Tera</a><a href="#aqua">Aqua</a><a href="#cesta">Naše cesta</a></nav><a class="nav-link" href="https://github.com/tondad80-dev/sirona-aqua-pc" target="_blank" rel="noopener noreferrer">Otevřený vývoj <span aria-hidden="true">↗</span></a>
+<button class="menu" aria-expanded="false" aria-controls="mobile-nav" aria-label="Otevřít menu"><span></span><span></span></button>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobilní navigace" hidden><a href="#vize">Vize</a><a href="#tera">Tera</a><a href="#aqua">Aqua</a><a href="#cesta">Naše cesta</a><a href="https://github.com/tondad80-dev/sirona-aqua-pc">GitHub ↗</a></nav></header>
+<main id="main">
+<section class="hero" id="home" aria-labelledby="hero-title">
+<div class="hero-art"><img src="assets/terrarium.webp" alt="Koncepční vizualizace terária s láčkovkou, mechem, dřevem a břidlicí v jemné mlze" width="1536" height="1024" fetchpriority="high"><div class="mist mist-one"></div><div class="mist mist-two"></div></div>
+<div class="hero-content"><p class="eyebrow"><span class="tiny-orbit"></span> PŘÍRODA × ZVÍDAVOST × TECHNOLOGIE</p><h1 id="hero-title">Malý svět.<br>Velká <em>vize.</em></h1><p class="hero-lead">Učíme se rozumět živému světu.<br>A tvoříme technologii, která se o něj jednou dokáže postarat.</p><div class="hero-actions"><a class="button primary" href="#vize">Objevte Sironu <span aria-hidden="true">↘</span></a><a class="text-link" href="#tera">Poznejte první biotop <span aria-hidden="true">→</span></a></div></div>
+<div class="hero-coordinate"><span class="cross">+</span><span>TERA / 001<br><small>ŽIVÝ ZÁKLAD. OTEVŘENÁ BUDOUCNOST.</small></span></div>
+<div class="hero-bottom"><a href="#vize" class="scroll-link"><span aria-hidden="true">↓</span> POKRAČOVAT V PŘÍBĚHU</a><span>KONCEPČNÍ VIZUALIZACE · CÍLOVÁ PODOBA</span></div>
 </section>
-
-<!-- FUNKCE -->
-<section id="funkce" class="features">
-    <div class="card">
-        <h3>📊 Monitoring vody</h3>
-        <p>Teplota: <span id="temp-val" class="live-value">-- °C</span></p>
-        <p>Průtok: <span id="flow-val" class="live-value">-- L/min</span></p>
-        <div id="status-text" class="status-indicator" style="color: gray;">Stav: Odpojeno</div>
-    </div>
-
-    <div class="card">
-        <h3>⚙️ Automatizace</h3>
-        <p>Filtrace, světla a CO₂ moduly řízené inteligentní logikou S1 jednotky.</p>
-    </div>
-
-    <div class="card">
-        <h3>📱 Mobilní aplikace</h3>
-        <p>Kompletní přehled v kapse. Notifikace, historie a dálkové ovládání.</p>
-    </div>
-
-    <div class="card">
-        <h3>🔧 S1 Jednotka</h3>
-        <p>ID Jednotky: <strong>S1-ALPHA-PC</strong></p>
-        <p>Uptime: <span id="uptime-val">00:00:00</span></p>
-    </div>
-</section>
-
-<!-- MODULY -->
-<section id="moduly" class="modules">
-    <div class="card"><h3>💡 Osvětlení</h3><p>Automatické řízení intenzity a spektra.</p></div>
-    <div class="card"><h3>🌬 Filtrace</h3><p>Chytré řízení průtoku a výkonu.</p></div>
-    <div class="card"><h3>🌿 CO₂</h3><p>Precizní dávkování pro rostlinná akvária.</p></div>
-    <div class="card"><h3>🔆 UV Sterilizace</h3><p>Automatické cykly pro čistou vodu.</p></div>
-</section>
-
-<!-- S1 -->
-<section id="s1" class="hero" style="background: white; margin: 2rem 0; padding: 4rem 1rem;">
-    <h2>S1 – Srdce celého systému</h2>
-    <p>
-        Jednotka S1 sbírá data ze senzorů v reálném čase. Kliknutím níže zahájíte synchronizaci dat s PC rozhraním.
-    </p>
-    <button class="btn-refresh" id="sync-btn">Synchronizovat s S1 Jednotkou</button>
-    <div id="msg-log">Připraveno ke komunikaci...</div>
-</section>
-
-<!-- APLIKACE -->
-<section id="app" class="hero">
-    <h2>Aplikace Sirona Aqua</h2>
-    <p>
-        Sledujte stav akvária, nastavujte automatizaci a prohlížejte grafy přímo zde v prohlížeči nebo v mobilu.
-    </p>
-
-    <a href="/dashboard" class="btn-dashboard">Otevřít ovládací panel S1</a>
-</section>
-
-<footer>
-    © 2026 Sirona Aqua – S1 PC Ecosystem<br>
-    <small>Všechny systémy monitorovány</small>
-</footer>
-
-<script>
-    const tempEl = document.getElementById('temp-val');
-    const flowEl = document.getElementById('flow-val');
-    const statusText = document.getElementById('status-text');
-    const syncBtn = document.getElementById('sync-btn');
-    const msgLog = document.getElementById('msg-log');
-    const uptimeEl = document.getElementById('uptime-val');
-
-    let uptimeSeconds = 0;
-
-    async function updateS1Data() {
-        syncBtn.classList.add('loading');
-        msgLog.innerText = "Probíhá handshake s S1 PC...";
-        
-        try {
-            await new Promise(resolve => setTimeout(resolve, 800));
-
-            const data = {
-                temp: (23 + Math.random() * 1.5).toFixed(1),
-                flow: (4.8 + Math.random() * 0.5).toFixed(1),
-                online: true
-            };
-
-            tempEl.innerText = `${data.temp} °C`;
-            flowEl.innerText = `${data.flow} L/min`;
-            statusText.innerText = "Stav: ONLINE (S1 PC)";
-            statusText.style.color = "var(--success)";
-            msgLog.innerText = "Synchronizace dokončena v " + new Date().toLocaleTimeString();
-
-        } catch (error) {
-            msgLog.innerText = "Chyba: Jednotka S1 neodpovídá.";
-            statusText.innerText = "Stav: CHYBA SPOJENÍ";
-            statusText.style.color = "var(--danger)";
-        } finally {
-            syncBtn.classList.remove('loading');
-        }
-    }
-
-    setInterval(() => {
-        uptimeSeconds++;
-        const hrs = String(Math.floor(uptimeSeconds / 3600)).padStart(2, '0');
-        const mins = String(Math.floor((uptimeSeconds % 3600) / 60)).padStart(2, '0');
-        const secs = String(uptimeSeconds % 60).padStart(2, '0');
-        uptimeEl.innerText = `${hrs}:${mins}:${secs}`;
-    }, 1000);
-
-    syncBtn.addEventListener('click', updateS1Data);
-
-    window.onload = () => {
-        updateS1Data();
-        setInterval(updateS1Data, 10000);
-    };
-</script>
-
-</body>
-</html>
+<div class="principles"><span>ŽIVÁ PŘÍRODA</span><i></i><span>POCTIVÉ POZOROVÁNÍ</span><i></i><span>SMYSLUPLNÁ AUTOMATIZACE</span><i></i><span>OTEVŘENÝ VÝVOJ</span></div>
+<section class="vision section" id="vize" aria-labelledby="vision-title"><div class="section-kicker"><span>01 / MANIFEST</span><span>OD POROZUMĚNÍ K PÉČI</span></div><div class="vision-grid"><h2 id="vision-title">Technologie<br>v rytmu <em>života.</em></h2><div class="vision-copy"><p class="large-copy">Co kdyby malý kousek přírody dokázal vyprávět, co potřebuje?</p><p>Sirona vzniká na pomezí biologie a techniky. Začíná skutečným teráriem a jednoduchou otázkou: co se v něm děje a proč? Naším cílem jsou mikrobiotopy, které umíme pozorovat, pochopit a postupně jim svěřit část vlastní péče.</p><p>Nejdřív se učíme my. Potom systém. Od ručních záznamů přes měření k digitálnímu dvojčeti a ověřenému řízení. Autonomie je směr, ke kterému rosteme.</p><a class="text-link" href="#cesta">Jak se k tomu dostaneme <span aria-hidden="true">↗</span></a></div></div><div class="statement"><span class="statement-num">∞</span><p>Největší objev může začít<br>v tom nejmenším světě.</p><span class="micro">SIRONA / ZÁKLADNÍ MYŠLENKA</span></div></section>
+<section class="tera section" id="tera" aria-labelledby="tera-title"><div class="section-kicker"><span>02 / TERA</span><span>FYZICKÝ SVĚT</span></div><div class="section-heading"><div><span class="tag">PRVNÍ ŽIVÝ PILOT</span><h2 id="tera-title">Krajina, která<br><em>dýchá.</em></h2></div><p>Sklo odděluje dva světy.<br>Zvídavost je spojuje.</p></div>
+<div class="terrarium-stage"><img src="assets/terrarium.webp" alt="Vize osázeného terária: láčkovka nad břidlicovou skalkou a mechem" width="1536" height="1024" loading="lazy"><div class="stage-top"><span>TERA_001</span><span>INTERAKTIVNÍ PRŮVODCE NÁVRHEM</span></div><button class="hotspot plant active" data-detail="plant" aria-label="Prozkoumat láčkovku" aria-pressed="true"><span>01</span><i>Láčkovka</i></button><button class="hotspot rock" data-detail="rock" aria-label="Prozkoumat živou skalku" aria-pressed="false"><span>02</span><i>Živá skalka</i></button><button class="hotspot fog" data-detail="fog" aria-label="Prozkoumat skrytou techniku" aria-pressed="false"><span>03</span><i>Skrytá technika</i></button><span class="image-caption">VIZUALIZACE ZÁMĚRU / NIKOLI FOTOGRAFIE HOTOVÉHO PILOTU</span></div>
+<div class="detail-row"><div class="detail-number" id="detail-number">01</div><div class="detail-copy" aria-live="polite"><h3 id="detail-title">Láčkovka jako živé centrum</h3><p id="detail-text">První pilot vzniká kolem láčkovky označené Nepenthes ‘Gaya’. V návrhu ji usazujeme do vzdušné dutiny dřeva, s volným prostorem pro láčky a odtokem přebytečné vody.</p></div><div class="detail-status"><span class="status-dot"></span> NÁVRH K REALIZACI</div></div>
+<div class="pilot-strip"><div><span class="mini-label">DNES MÁME</span><p>Terárium · láčkovku · 6W LED<br>mlžič · teploměr a vlhkoměr</p></div><div><span class="mini-label">TEĎ STAVÍME</span><p>Břidlicovou skalku, dřevo a mech.<br>Přirozený vzhled, přístupná údržba.</p></div><div><span class="mini-label">UČÍME SE SPOLEČNĚ</span><p>První terárium pro syna.<br>Pozorovat, rozhodnout, pochopit.</p></div></div></section>
+<section class="aqua section" id="aqua" aria-labelledby="aqua-title"><div class="section-kicker"><span>03 / AQUA</span><span>DIGITÁLNÍ VRSTVA</span></div><div class="aqua-grid"><div class="aqua-copy"><span class="tag">OD ÚDAJE K SOUVISLOSTEM</span><h2 id="aqua-title">Příroda má<br>svůj <em>signál.</em></h2><p class="large-copy">Chceme se ho naučit číst.</p><p>Tera je živý fyzický svět. Aqua je navrhovaná vrstva jeho měření, přehledu a řízení. Propojí senzory s historií prostředí a ukáže, jak biotop reaguje na světlo, mlžení nebo proudění vzduchu.</p><p>Jednou z veličin je VPD: rozdíl mezi tlakem nasycené vodní páry a jejím skutečným tlakem. Spojuje teplotu a vlhkost do jednoho pohledu na vysušující působení vzduchu.</p><div class="architecture"><span>BIOTOP</span><b aria-hidden="true">↔</b><span>SENZORY</span><b aria-hidden="true">↔</b><span>AQUA</span></div><p class="architecture-note">Plánovaná páteř: ESP32 + čidla → MQTT → přehled a historie. Fyzické propojení prvního pilotu zatím není ověřené.</p></div>
+<div class="signal-panel"><div class="panel-header"><span class="panel-brand">SIRONA / AQUA</span><span class="demo-tag">INTERAKTIVNÍ MODEL</span></div><div class="panel-intro"><span class="mini-label">PROZKOUMEJTE VZTAHY</span><h3>Co se změní ve vzduchu?</h3><p>Posuňte teplotu nebo vlhkost a sledujte vypočtené VPD.</p></div><div class="vpd-display"><span class="mini-label">VPD VZDUCHU</span><div><output id="vpd-output">0,61</output><span>kPa</span></div><svg class="signal-chart" viewBox="0 0 400 75" aria-hidden="true"><defs><linearGradient id="fade" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b8f77c" stop-opacity=".2"/><stop offset="1" stop-color="#b8f77c" stop-opacity="0"/></linearGradient></defs><path d="M0 65Q40 60 70 53T140 46T210 34T280 25T350 15L400 9V75H0Z" fill="url(#fade)"/><path d="M0 65Q40 60 70 53T140 46T210 34T280 25T350 15L400 9" fill="none" stroke="#b8f77c" stroke-width="2"/></svg><span class="chart-caption">ILUSTRACE VZTAHU / BEZ ČASOVÉ TELEMETRIE</span></div>
+<div class="slider-group"><label for="temperature">Teplota vzduchu <output id="temperature-output" for="temperature">21,3 °C</output></label><input id="temperature" type="range" min="15" max="35" step="0.1" value="21.3"><div class="range-labels"><span>15 °C</span><span>35 °C</span></div></div><div class="slider-group"><label for="humidity">Relativní vlhkost <output id="humidity-output" for="humidity">76 %</output></label><input id="humidity" type="range" min="30" max="100" step="1" value="76"><div class="range-labels"><span>30 %</span><span>100 %</span></div></div><div class="model-insight" aria-live="polite"><span aria-hidden="true">↗</span><p id="model-insight">Při vyšší vlhkosti VPD klesá. Při stejné vlhkosti a vyšší teplotě roste.</p></div><button class="reset-button" id="reset-model">Obnovit výchozí model <span aria-hidden="true">↺</span></button><p class="model-note">Pouze výukový výpočet. Bez připojeného čidla a bez ovládání zařízení. VPD vzduchu není měření listu ani doporučený pěstební rozsah.</p></div></div></section>
+<section class="journey section" id="cesta" aria-labelledby="journey-title"><div class="section-kicker"><span>04 / CESTA K AUTONOMII</span><span>KROK ZA KROKEM</span></div><div class="section-heading"><h2 id="journey-title">Nejdřív porozumět.<br>Potom <em>svěřit péči.</em></h2><p>Každá další schopnost<br>vyrůstá ze skutečné zkušenosti.</p></div><div class="timeline"><article class="current"><div class="timeline-top"><span>01</span><span class="phase">PRÁVĚ TEĎ</span></div><h3>Živý základ</h3><p>Sestavit prostředí. Ručně pečovat, zaznamenávat odečty a pozorovat reakce rostliny.</p><small>ČLOVĚK ŘÍDÍ. SYSTÉM SE RODÍ.</small></article><article><div class="timeline-top"><span>02</span><span class="phase">DALŠÍ KROK</span></div><h3>Naslouchání</h3><p>Ověřit senzory, sbírat časové řady a propojit teplotu, vlhkost a VPD s denním rytmem.</p><small>PROSTŘEDÍ ZÍSKÁVÁ HISTORII.</small></article><article><div class="timeline-top"><span>03</span><span class="phase">NAVAZUJÍCÍ CÍL</span></div><h3>Digitální dvojče</h3><p>Porovnávat skutečný vývoj s modelem. Nejprve zkoušet doporučení, potom vyhodnotit jejich účinek.</p><small>MODEL SE UČÍ Z REALITY.</small></article><article><div class="timeline-top"><span>04</span><span class="phase">DLOUHODOBÁ VIZE</span></div><h3>Autonomní péče</h3><p>Ověřené řízení světla, mlžení a ventilace. Detekce chyb, dohled člověka a více propojených biotopů.</p><small>TECHNOLOGIE PEČUJE.</small></article></div></section>
+<section class="horizon section" aria-labelledby="horizon-title"><div class="horizon-orbit" aria-hidden="true"><div class="orbit-ring ring1"></div><div class="orbit-ring ring2"></div><div class="orbit-ring ring3"></div><span class="orbit-center">S</span><span class="orbit-node node1">TERA</span><span class="orbit-node node2">AQUA</span><span class="orbit-node node3">DALŠÍ UZLY</span></div><div class="horizon-content"><p class="eyebrow">ZA HRANICÍ JEDNOHO SKLA</p><h2 id="horizon-title">Jeden biotop.<br><em>Otevřený horizont.</em></h2><p>Terárium je první krok. Dlouhodobou vizí je modulární rodina živých systémů — od terárií přes vodní biotopy po pěstitelské experimenty. Se společnou řečí dat, vyměnitelnými uzly a schopností učit se z každého dalšího prostředí.</p><p class="horizon-note">Výzkumný směr Sirony. Rozšíření se bude odvíjet od zkušeností prvního pilotu.</p></div></section>
+<section class="invitation section" aria-labelledby="invitation-title"><p class="eyebrow">TVŮRČÍ DIALOG ZAČÍNÁ OTÁZKOU</p><h2 id="invitation-title">Co se můžeme naučit<br>od <em>živého světa?</em></h2><p>Stavíme, pozorujeme a sdílíme cestu. Pěstujete láčkovky, tvoříte vlastní biotop nebo propojujete přírodu s elektronikou? Pojďme si vyměnit zkušenosti.</p><div class="invite-actions"><a class="button primary" href="https://github.com/tondad80-dev/sirona-aqua-pc/issues/new?template=podnet.md" target="_blank" rel="noopener noreferrer">Přidejte svůj pohled <span aria-hidden="true">↗</span></a><a class="text-link" href="https://github.com/tondad80-dev/sirona-aqua-pc" target="_blank" rel="noopener noreferrer">Prozkoumat zdrojový kód <span aria-hidden="true">↗</span></a></div><span class="signature">ANTONÍN DOSPIVA <span>×</span> SIRONA</span></section>
+</main><footer class="footer"><a class="footer-brand" href="#home">SIRONA<span>TECHNOLOGIE V RYTMU ŽIVOTA.</span></a><p>Nezávislý projekt · Česká republika<br><span>Stav projektu: říjen 2026 · Vize ve vývoji</span></p><a href="https://github.com/tondad80-dev/sirona-aqua-pc" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#home" aria-label="Zpět nahoru" class="back-top">↑</a></footer>
+</body></html>
