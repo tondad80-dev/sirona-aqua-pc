@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://sirona-living-systems.upbeatcomet6.chatgpt.site/sitemap.xml

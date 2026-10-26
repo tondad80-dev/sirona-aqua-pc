@@ -35,7 +35,3 @@ function closeMenu() {menu.setAttribute('aria-expanded', 'false');menu.setAttrib
 menu.addEventListener('click', () => {const open = menu.getAttribute('aria-expanded') !== 'true';menu.setAttribute('aria-expanded', String(open));menu.setAttribute('aria-label', open ? 'Zavřít menu' : 'Otevřít menu');mobileNav.hidden = !open;});
 mobileNav.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
 document.addEventListener('keydown', event => {if (event.key === 'Escape') closeMenu();});
-if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
- const observer = new IntersectionObserver(entries => entries.forEach(entry => {if (entry.isIntersecting) {entry.target.classList.add('visible');observer.unobserve(entry.target);}}), {threshold: 0.08});
- document.querySelectorAll('.vision-grid,.statement,.section-heading,.aqua-copy,.signal-panel,.timeline,.horizon-content,.invitation h2').forEach(element => {element.classList.add('reveal');observer.observe(element);});
-}

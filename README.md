@@ -1,42 +1,52 @@
-# SIRONA — Technologie v rytmu života
+# SIRONA — Environment control for living worlds
 
-Prezentační stránka projektu **Sirona — systém řízení prostředí**. **Tera** je větev pro řízení prostředí **terárií**. **Aqua** je větev pro řízení prostředí **akvárií**. Jde o dvě specializace společného systému, nikoli o rozdělení na fyzické tělo a digitální vrstvu. Toto vymezení vychází z přímého upřesnění autora z 26. 10. 2026.
+[English website](https://sirona-living-systems.upbeatcomet6.chatgpt.site/en.html) · [Český web](https://sirona-living-systems.upbeatcomet6.chatgpt.site/) · [Česká dokumentace](README.cs.md) · [Public feedback thread](https://github.com/tondad80-dev/sirona-aqua-pc/issues/1)
 
-## Spuštění
+**Sirona** is an environment-control project with two specialised branches:
 
-Statický web bez sestavení a bez závislostí: otevřete `index.html`, nebo adresář obslužte libovolným statickým HTTP serverem. Fonty se volitelně načítají z Google Fonts; při nedostupnosti funguje systémový sans-serif.
+- **Tera:** terrarium environments — air temperature, humidity, lighting, fogging and ventilation.
+- **Aqua:** aquarium environments — water monitoring, lighting, filtration and circulation.
 
-- `index.html` — český obsah, přístupná navigace a struktura.
-- `style.css` — responzivní tmavý botanický design, reduced-motion varianta.
-- `script.js` — průvodce návrhem terária, mobilní menu a výukový výpočet VPD.
-- `assets/terrarium-fog.webp` a `assets/aquarium.webp` — AI koncepční vizualizace terarijní a akvarijní větve, nikoli fotografie existujících pilotů.
-- `assets/sirona.svg` — značka odvozená z původního trojúhelníkového symbolu.
+The shared system is Sirona. Aqua is not the digital layer for Tera.
 
-## Skutečnost a vize
+## What exists today
 
-Stav obsahu k 26. říjnu 2026. Doložený fyzický základ: terárium, láčkovka označená Nepenthes ‘Gaya’, 6W LED, mlžič a samostatný teploměr/vlhkoměr. Skalka a zakrytí techniky jsou návrh k realizaci. Autor 26. 10. 2026 výslovně zvolil pouze mlžič: bez vodopádu, potůčku, otevřené vodní plochy a oběhového čerpadla. Voda zůstává v nádobě mlžiče; návrh zachovává drenáž a odvodnění kořenového prostoru. Automatická telemetrie ani autonomní řízení prvního pilotu nejsou tímto webem doloženy.
+As of 26 October 2026, the first Tera pilot has a glass terrarium, a pitcher plant labelled *Nepenthes* ‘Gaya’, a 6 W LED, a fogger and a standalone thermometer/hygrometer. Slate planting terraces, wood and moss are being planned. The terrarium design uses **only a fogger: no waterfall, stream, pond or circulation pump**. The fogger's reservoir remains accessible for refilling and removal. The planting hollow needs free drainage.
 
-Panel **Tera** s VPD vzduchu je výslovně označený **výukový model**. Vstupy jsou lokální hodnoty posuvníků; není připojen hardware ani MQTT broker a nic se nespíná. Původní náhodná „ONLINE“ data a neexistující odkaz `/dashboard` byly odstraněny.
+The verified software in this repository is a **static presentation website**, with an educational air-VPD calculator. Hardware telemetry, a working ESP32/MQTT connection to this pilot and autonomous control are **not yet verified**. Earlier software notes describe a separate application that is not implemented by this website.
 
-Výpočet VPD vzduchu (kPa):
+The terrarium and aquarium images are **AI-generated concept visualisations**, not photographs of completed builds. The aquarium branch remains a concept and earlier web prototype, not a verified working aquarium controller.
 
+## We would value practical feedback
+
+1. Where would you place air-temperature and humidity sensors so fog and condensation do not dominate the readings?
+2. Which faults should the first controller detect before it is allowed to switch equipment?
+3. Which trend, warning or manual override would make this useful in your terrarium or aquarium?
+
+Please share what you have actually observed, distinguish it from a proposed solution, and include the environment and sensor placement where relevant. [Open a feedback issue](https://github.com/tondad80-dev/sirona-aqua-pc/issues/new?template=feedback.md).
+
+## Run locally
+
+Open `index.html` (Czech) or `en.html` (English), or serve the repository with any static HTTP server. No build, package manager or API key is needed. Fonts optionally load from Google Fonts; system fonts provide a fallback.
+
+| File | Purpose |
+| --- | --- |
+| `index.html`, `en.html` | Czech and English pages with a language switch |
+| `style.css` | Shared responsive design, including reduced-motion support |
+| `script.js`, `script-en.js` | Localised model, terrarium guide and mobile navigation |
+| `assets/terrarium-fog.webp` | Tera concept, with fog and no running water |
+| `assets/aquarium.webp` | Aqua concept |
+| `docs/outreach/` | Audience-specific draft posts and a publication-status record |
+
+The model uses slider values only, has no sensor connection and switches no equipment. Air VPD is not a leaf measurement or a prescribed growing range. The decorative curve is not historical telemetry.
+
+```text
+saturation_vapour_pressure_kPa = 0.6108 * exp(17.27 * T / (T + 237.3))
+air_VPD_kPa = saturation_vapour_pressure_kPa * (1 - RH / 100)
 ```
-es = 0.6108 * exp(17.27 * T / (T + 237.3))
-VPD = es * (1 - RH / 100)
-```
 
-T je teplota vzduchu v °C. Model nepočítá teplotu listu a neurčuje vhodný pěstební rozsah. Dekorativní křivka není historická telemetrie. VPD je zde ukázka pro vzduch v teráriu, nikoli akvarijní parametr. Aqua má vlastní sekci zaměřenou na vodní prostředí, světlo, filtraci a cirkulaci.
+`T` is air temperature in °C; `RH` is relative humidity in percent.
 
-## Obsahové podklady
+## Project boundary
 
-Stránka vychází z aktuálního projektového přehledu Sirony, návrhu Tera z 26. 10. 2026, historického master plánu a softwarové rekapitulace Aqua. Soukromé podklady, korespondence a osobní kontakty nejsou součástí repozitáře. Aktuální návrh s ‘Gaya’ má přednost před historickým plánem s N. ampullaria. Historické rozměry nejsou prezentovány jako změřené rozměry současné nádrže.
-
-## Vizuální assety
-
-Hero byl vytvořen vestavěným nástrojem ImageGen a optimalizován do WebP. Brief: filmová botanická vizualizace skleněného terária s láčkovkou, tmavou břidlicí, mechem, dutým dřevem a jemnou mlhou; tmavé zelené pozadí s místem pro text; technika skrytá, bez textu a bez lidí. Opravený Tera brief: odstranit všechny vodopády, potůček a jezírko, nahradit je pěstebními terasami; přidat jasně viditelnou, průsvitnou mlhu ze skrytého mlžiče mezi břidlicí. Ilustrace jsou na stránce označené jako koncepční. Doplněný Aqua brief: filmová vizualizace osázeného sladkovodního akvária, vodní rostliny, břidlice, dřevo, drobné ryby, čistá voda a tmavě zelené pozadí; bez mlhy, suchozemských rostlin, nápisů a viditelné elektroniky.
-
-## Hranice projektu
-
-> **Status: STANDALONE STATIC-WEB PROTOTYPE / PROJECT PRESENTATION**
->
-> This repository is independent from the current ProcessCore, QCore, AgriCore, TDK and Golden project families. It must not be treated as their project-state authority. The website does not implement the historical Next.js/MQTT application.
+This is a standalone Sirona presentation prototype. It is independent of ProcessCore, QCore, AgriCore, TDK and Golden and is not an authority for their project state. Autonomy, digital twins and expansion are development goals, not current capabilities demonstrated by the website.
