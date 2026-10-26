@@ -1,4 +1,4 @@
-# Sirona feedback outreach — 26 October 2026
+# Sirona feedback outreach — 27 October 2026
 
 This is a publication record, not a claim that drafts were posted. The aim is practical criticism of an early environment-control project. Text must be adapted to each community's rules and actual evidence; do not mass-copy a promotional pitch.
 
@@ -12,13 +12,15 @@ This is a publication record, not a claim that drafts were posted. The aim is pr
 
 | Destination | Intended discussion | Current status |
 | --- | --- | --- |
-| Arduino Forum, Projects / General Guidance | Sensor placement and failure handling before ESP32 automation | Draft prepared; author sign-in required |
+| Arduino Forum, Projects / General Guidance | Sensor placement and failure handling before ESP32 automation | Published 27 October 2026 as tondad80: [topic](https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328) |
 | Carnivorous-plant / terrarium community | Manual baseline, fogging, drainage and sensor interpretation | Draft prepared; final destination/rules and author sign-in required |
 | Aquarium / planted-tank community | Useful early warnings and failure behaviour | Draft prepared; final destination/rules and author sign-in required |
 | LinkedIn | Cross-disciplinary discussion of misleading sensor readings | Draft prepared; no connected publishing account |
 | X | Short request for sensor/failure feedback | Draft prepared; no connected publishing account |
 
-No post on these external destinations has been made in this outreach cycle. GitHub feedback thread published: https://github.com/tondad80-dev/sirona-aqua-pc/issues/1 — this is the only community feedback post published in this cycle so far.
+Arduino Forum topic published on 27 October 2026 (Europe/Prague): https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328. The browser verified the visible title, author tondad80, full body and Projects / General Guidance category after submission; it was visible immediately, not pending moderation. Do not submit a duplicate.
+
+GitHub feedback thread: https://github.com/tondad80-dev/sirona-aqua-pc/issues/1. The remaining destinations above are drafts; no publication there is recorded in this outreach cycle. Publication alone is not evidence of independent feedback.
 
 ## Rules checked
 
