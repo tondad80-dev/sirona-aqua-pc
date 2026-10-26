@@ -1,6 +1,8 @@
-# Draft — Arduino Forum / General Guidance
+# Published — Arduino Forum / General Guidance
 
-Status: NOT POSTED. Requires an authenticated author account and a final check of category rules. Proposed destination: https://forum.arduino.cc/ (Projects / General Guidance).
+Status: POSTED on 27 October 2026 (Europe/Prague), as tondad80, in Projects / General Guidance. Visible publication verified after submission; not pending moderation. Do not repost.
+
+Published topic: https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328
 
 Title: Before automating a Nepenthes terrarium: sensor placement and failure handling for an ESP32 controller?
 
@@ -18,4 +20,4 @@ My questions:
 2. Would you start with simple RH hysteresis plus temperature limits and logging, or is calculated air VPD useful at this stage? I am not treating air VPD as leaf VPD.
 3. Which failure condition should I test first, and what should the fogger and ventilation do when readings are stale or invalid?
 
-I'd especially value lessons from systems you have actually run. No product is for sale. Background, including clearly labelled AI concept images: https://sirona-living-systems.upbeatcomet6.chatgpt.site/en.html
+I'd especially value lessons from systems you have actually run. No product is for sale. Background, including clearly labelled AI concept images: https://sirona-living-systems.upbeatcomet6.chatgpt.site/en
