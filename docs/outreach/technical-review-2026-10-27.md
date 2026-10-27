@@ -9,9 +9,9 @@ https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placem
 
 The browser verified author, exact reply text, parent relationship and public visibility. This was a request for component datasheets, not independent validation of the design. No duplicate was submitted.
 
-## Technical decisions still open
+## Findings from the historical parts review
 
-- Treat the old ESP32 / BME280 / relay / MOSFET / fan list as candidates, not a finished circuit.
+- The old ESP32 / BME280 / relay / MOSFET / fan list is historical background, not the current bill of materials or a confirmed selection.
 - BME280's non-condensing operating condition is a material limitation in a fogged enclosure. Its stated ±3 %RH accuracy has defined temperature/humidity conditions.
 - D4184 on-resistance is not guaranteed at 3.3 V in the linked manufacturer datasheet. Identify the actual HW-532 circuit and any gate driver before deciding GPIO compatibility. A generic 5 V low-trigger relay also needs its own input specifications.
 - Identify the fogger and adapter, including AC/DC output and current, and the fans' model/current/wiring before choosing output stages.
@@ -25,7 +25,32 @@ The browser verified author, exact reply text, parent relationship and public vi
 - Bosch BME280 datasheet, humidity specifications and non-condensing footnote: https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf
 - AOS AOD4184/AOI4184 datasheet: https://www.aosmd.com/res/data_sheets/AOI4184.pdf
 
-## Published reply
+## Current corrected reply
+
+At the user's request, post #4 was edited in place on 27 October 2026 to distinguish historical planning from the present build. The browser verified the saved correction, public visibility, retained author/post/parent relationship and manufacturer links. Post #5 was unchanged.
+
+**Correction — 27 October 2026**
+
+I should clarify the basis of my earlier reply: I used an old planning document when answering which components are intended. The BME280, HW-532/D4184 module, generic 5 V relay and two 12 V fans were historical suggestions. **They are not confirmed as the selected or installed hardware for the present Tera build.**
+
+What actually exists is the terrarium with Nepenthes ‘Gaya’, the REPTI PLANET 007-43802 6 W light with its original adapter/controller, an ultrasonic fogger and a standalone thermometer/hygrometer.
+
+The current aim is to control the existing light and fogger and add appropriate ventilation and monitoring. The final controller, sensors and output stages remain under consideration. ESP32 is a proposed platform; I am not claiming a working automatic control system or completed hardware tests. There is no waterfall, stream or circulation pump. Any revised component suggestions are also proposals, not a confirmed replacement bill of materials.
+
+The manufacturer links from my earlier reply remain relevant as background, with these limits:
+
+- [REPTI PLANET instructions](https://reptiplanet.pet/portfolio-items/repti-planet-led-light-lamp-6w/): the lamp requires dry placement; its behaviour after power is restored still needs testing.
+- [BME280 datasheet](https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme280-ds002.pdf): non-condensing operation.
+- [AOD4184/AOI4184 datasheet](https://www.aosmd.com/res/data_sheets/AOI4184.pdf): no guaranteed on-resistance at 3.3 V. The exact module circuit matters.
+- [Espressif module datasheet](https://documentation.espressif.com/esp32-wroom-32_datasheet_en.html): this does not identify the exact development board or shield.
+
+The fogger’s actual model and adapter must be checked directly; the old “24 V” entry is not verification of the present unit.
+
+I use AI for research and drafting, but the design must be supported by manufacturer specifications and measurements. I should have separated historical ideas from the current build more clearly.
+
+## Original reply — superseded by the correction above
+
+This text records the first publication for traceability. It is not the current forum wording or a component selection.
 
 Thanks — asking for datasheets is fair. I checked the original parts list against manufacturer documentation; here is what is known and what is still missing.
 
@@ -45,4 +70,4 @@ On AI: an AI opinion alone is not technical evidence. I use it for research and 
 
 ## Other feedback
 
-TomGeorge's post #3 welcomed the project and asked about the author's electronics, programming, Arduino and hardware experience. That question has not been answered in this action because the author's experience was not established. Do not invent a biography or skill level.
+TomGeorge's post #3 welcomed the project and asked about the author's electronics, programming, Arduino and hardware experience. After the user explicitly supplied that they are beginning and want to improve, tondad80 answered in [post #5](https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328/5). The correction to post #4 did not change that answer.
