@@ -28,7 +28,9 @@ Railroader requested component datasheets and questioned AI opinion as technical
 
 After checking manufacturer documentation, tondad80 published a [direct reply, post #4](https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328/4), with datasheet links, the distinction between existing equipment and historical candidates, and explicit unresolved sensor/output-stage issues. Author, full text, reply relationship and public visibility were verified after submission. See [technical review and exact published text](technical-review-2026-10-27.md).
 
-TomGeorge also welcomed the project and asked about the author's experience in post #3. That question remains unanswered; no experience level was invented.
+TomGeorge welcomed the project and asked about the author's experience in post #3. After the user explicitly said they are beginning and want to improve as much as possible, tondad80 published a [direct reply, post #5](https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328/5). Author, full text, parent TomGeorge/post #3 and public visibility were verified.
+
+> Hi Tom, thank you for the welcome! I'm just starting out with electronics and Arduino. This project is a way for me to learn, and I want to improve my skills as much as I can, step by step. I appreciate practical advice and feedback from experienced members.
 
 ## Rules checked
 
