@@ -22,6 +22,14 @@ Arduino Forum topic published on 27 October 2026 (Europe/Prague): https://forum.
 
 GitHub feedback thread: https://github.com/tondad80-dev/sirona-aqua-pc/issues/1. The remaining destinations above are drafts; no publication there is recorded in this outreach cycle. Publication alone is not evidence of independent feedback.
 
+## Feedback received and response
+
+Railroader requested component datasheets and questioned AI opinion as technical evidence in [post #2](https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328/2). This is a request for verifiable specifications, not validation or measured experience with this terrarium.
+
+After checking manufacturer documentation, tondad80 published a [direct reply, post #4](https://forum.arduino.cc/t/before-automating-a-nepenthes-terrarium-sensor-placement-and-failure-handling-for-an-esp32-controller/1465328/4), with datasheet links, the distinction between existing equipment and historical candidates, and explicit unresolved sensor/output-stage issues. Author, full text, reply relationship and public visibility were verified after submission. See [technical review and exact published text](technical-review-2026-10-27.md).
+
+TomGeorge also welcomed the project and asked about the author's experience in post #3. That question remains unanswered; no experience level was invented.
+
 ## Rules checked
 
 - Arduino Forum guidelines: https://forum.arduino.cc/guidelines — keep posts substantive, in the appropriate category; no duplicate topics or spam.
