@@ -29,6 +29,12 @@ VPD = es * (1 - RH / 100)
 
 T je teplota vzduchu v °C. Model nepočítá teplotu listu a neurčuje vhodný pěstební rozsah. Dekorativní křivka není historická telemetrie. VPD je zde ukázka pro vzduch v teráriu, nikoli akvarijní parametr. Aqua má vlastní sekci zaměřenou na vodní prostředí, světlo, filtraci a cirkulaci.
 
+## Obnovená simulace Aqua — 28. října 2026
+
+Samostatná, místně otestovaná rekonstrukce historické aplikace Aqua obsahuje deterministický simulátor, místní MQTT broker a panel Next.js. Veřejný [balík simulace](simulation/README.md) nabízí pouze záznam **50 syntetických vzorků**, offline HTML prohlížeč a manifest SHA-256 s označením zdrojové revize.
+
+Stáhněte složku `simulation/` a otevřete v ní `index.html`. GitHub u HTML souboru zobrazuje zdrojový kód, nikoli spuštěný panel. Ukázka není připojena k hardwaru a neověřuje automatizaci Tera, řízení akvária ani biologické výsledky. Přesná shoda s dosud neprohlédnutou verzí na lokálním disku není potvrzena. Tento balík sám neaktualizuje samostatně hostovaný web uvedený výše.
+
 ## Obsahové podklady
 
 Stránka vychází z aktuálního projektového přehledu Sirony, návrhu Tera z 26. 10. 2026, historického master plánu a softwarové rekapitulace Aqua. Soukromé podklady, korespondence a osobní kontakty nejsou součástí repozitáře. Aktuální návrh s ‘Gaya’ má přednost před historickým plánem s N. ampullaria. Historické rozměry nejsou prezentovány jako změřené rozměry současné nádrže.

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "sirona-public-export/v1",
+  "project": "Sirona Aqua",
+  "version": "0.2.0-recovery.1",
+  "status": "reconstruction",
+  "simulated": true,
+  "hardwareConnected": false,
+  "sourceRevision": "1181b32667def1eb62b8fb3961d168548a8d4e4a",
+  "files": {
+    "README.md": {
+      "sha256": "9048563518ff1a60f31b6eea161b75f278ef34d2832d6081f9cb5feb35fdeb39",
+      "bytes": 882
+    },
+    "index.html": {
+      "sha256": "a8c60ff2c824c9ba306a57c63a59a497f6d997a1dbafa8965a8095f70c6800a6",
+      "bytes": 14570
+    },
+    "simulation-summary.json": {
+      "sha256": "97c90c0817def1fd8749e320319220def7da8339af4328b7ffc3c0b0b714a96f",
+      "bytes": 14497
+    }
+  }
+}
