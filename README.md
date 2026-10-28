@@ -17,6 +17,12 @@ The verified software in this repository is a **static presentation website**, w
 
 The terrarium and aquarium images are **AI-generated concept visualisations**, not photographs of completed builds. The aquarium branch remains a concept and earlier web prototype, not a verified working aquarium controller.
 
+## Reconstructed Aqua simulation — 28 October 2026
+
+A separate, locally tested reconstruction of the historical Aqua application now provides a deterministic simulator, a local MQTT broker and a Next.js dashboard. The public [simulation package](simulation/README.md) contains only a recorded trace of **50 synthetic samples**, an offline HTML viewer and a SHA-256 manifest identifying the source revision.
+
+Download the `simulation/` folder and open `index.html` locally to inspect the trace. GitHub's HTML file view shows source code rather than running the viewer. The demo has no hardware connection and does not validate the Tera pilot, aquarium control or biological performance. It is not a byte-for-byte restoration of the unexamined local disk version. This package does not update the separately hosted website linked above.
+
 ## We would value practical feedback
 
 1. Where would you place air-temperature and humidity sensors so fog and condensation do not dominate the readings?
