@@ -13,9 +13,19 @@ The shared system is Sirona. Aqua is not the digital layer for Tera.
 
 As of 26 October 2026, the first Tera pilot has a glass terrarium, a pitcher plant labelled *Nepenthes* ‘Gaya’, a 6 W LED, a fogger and a standalone thermometer/hygrometer. Slate planting terraces, wood and moss are being planned. The terrarium design uses **only a fogger: no waterfall, stream, pond or circulation pump**. The fogger's reservoir remains accessible for refilling and removal. The planting hollow needs free drainage.
 
-The verified software in this repository is a **static presentation website**, with an educational air-VPD calculator. Hardware telemetry, a working ESP32/MQTT connection to this pilot and autonomous control are **not yet verified**. Earlier software notes describe a separate application that is not implemented by this website.
+The source on this repository's main branch is a **static presentation website**, with an educational air-VPD calculator. The published website also includes a **synthetic Aqua recording exported from the separate private application**. Hardware telemetry, a working ESP32/MQTT connection to the physical pilot and autonomous control are **not yet verified**.
 
-The terrarium and aquarium images are **AI-generated concept visualisations**, not photographs of completed builds. The aquarium branch remains a concept and earlier web prototype, not a verified working aquarium controller.
+The terrarium and aquarium images are **AI-generated concept visualisations**, not photographs of completed builds. The aquarium branch has a tested software simulation; a working physical aquarium controller remains unverified.
+
+## Published simulation preview — 29 October 2026
+
+The live website presents **0.2.0-recovery.1**: a recording of **50 synthetic samples**, with explicit simulation labels and no equipment control. Its provenance manifest states `simulated: true` and `hardwareConnected: false`.
+
+- [Synthetic recording](https://sirona-living-systems.upbeatcomet6.chatgpt.site/simulation/simulation-summary.json)
+- [Public provenance manifest](https://sirona-living-systems.upbeatcomet6.chatgpt.site/simulation/public-manifest.json)
+- [Proposed public export, PR #2](https://github.com/tondad80-dev/sirona-aqua-pc/pull/2)
+
+The website reports the recovery baseline's **22 automated tests and 10 browser checks**, recorded on 28 October. These are software-simulation checks, not biological validation or hardware acceptance. The recording is not a live MQTT connection. The main branch here does not yet include that proposed export; opening it locally gives the existing presentation/VPD model. Newer private development is separate and is not automatically published.
 
 ## We would value practical feedback
 

@@ -29,6 +29,16 @@ VPD = es * (1 - RH / 100)
 
 T je teplota vzduchu v °C. Model nepočítá teplotu listu a neurčuje vhodný pěstební rozsah. Dekorativní křivka není historická telemetrie. VPD je zde ukázka pro vzduch v teráriu, nikoli akvarijní parametr. Aqua má vlastní sekci zaměřenou na vodní prostředí, světlo, filtraci a cirkulaci.
 
+## Zveřejněná simulace — 29. října 2026
+
+Živý web navíc představuje **0.2.0-recovery.1**: záznam **50 syntetických vzorků Aqua**, výslovně označený jako simulace a bez ovládání zařízení. Veřejný manifest uvádí `simulated: true` a `hardwareConnected: false`.
+
+- [Syntetický záznam](https://sirona-living-systems.upbeatcomet6.chatgpt.site/simulation/simulation-summary.json)
+- [Veřejný manifest původu](https://sirona-living-systems.upbeatcomet6.chatgpt.site/simulation/public-manifest.json)
+- [Navržený veřejný export, PR #2](https://github.com/tondad80-dev/sirona-aqua-pc/pull/2)
+
+Web uvádí **22 automatických testů a 10 kontrol v prohlížeči** ze dne 28. října pro tuto obnovenou softwarovou základnu. Nejde o biologickou validaci ani přejímku hardwaru. Přehrávání není živé spojení MQTT. Výchozí větev tohoto repozitáře zatím navržený export neobsahuje; místní otevření poskytne dosavadní prezentaci a model VPD. Novější soukromý vývoj zůstává oddělený a automaticky se nezveřejňuje.
+
 ## Obsahové podklady
 
 Stránka vychází z aktuálního projektového přehledu Sirony, návrhu Tera z 26. 10. 2026, historického master plánu a softwarové rekapitulace Aqua. Soukromé podklady, korespondence a osobní kontakty nejsou součástí repozitáře. Aktuální návrh s ‘Gaya’ má přednost před historickým plánem s N. ampullaria. Historické rozměry nejsou prezentovány jako změřené rozměry současné nádrže.
@@ -41,4 +51,4 @@ Hero byl vytvořen vestavěným nástrojem ImageGen a optimalizován do WebP. Br
 
 > **Status: STANDALONE STATIC-WEB PROTOTYPE / PROJECT PRESENTATION**
 >
-> This repository is independent from the current ProcessCore, QCore, AgriCore, TDK and Golden project families. It must not be treated as their project-state authority. The website does not implement the historical Next.js/MQTT application.
+> This repository is independent from the current ProcessCore, QCore, AgriCore, TDK and Golden project families. It must not be treated as their project-state authority. The website can present a synthetic trace exported from the separate private application; it does not expose that application's source, connect to physical equipment or establish autonomous operation.
